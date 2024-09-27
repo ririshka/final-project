@@ -1,0 +1,25 @@
+backendDeployment:
+  backend:
+    image:
+      repository: gcr.io/inner-nuance-332319/awesome-dockerfiles/backend
+      tag: 8e60ceed
+  replicas: 1
+backendService:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 3000
+  type: ClusterIP
+frontendDeployment:
+  frontend:
+    image:
+      repository: gcr.io/inner-nuance-332319/awesome-dockerfiles/frontend
+      tag: 8e60ceed
+  replicas: 1
+frontendService:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 3000
+  type: ClusterIP
+kubernetesClusterDomain: cluster.local
